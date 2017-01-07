@@ -1,0 +1,44 @@
+var casper = require('casper').create()
+var urlArr=[
+{
+	url:"http://passport.meituan.com/account/unitivelogin",
+	msg:{
+		mobile:'15938385556'
+	},
+	btnId:'#J-verify-btn',
+	formId:'form#J-mobile-form',
+	iframe:false
+},
+{
+	url:"http://webmail30.189.cn/w2/",
+	msg:{
+		userName:'15938385556'
+	},
+	btnId:'span#verifyCode_msg',
+	formId:'form#smsLoginForm',
+	iframe:true
+}
+]
+var i = 0 ;
+casper.start().repeat(2,function(){
+  console.log(i+'----'+urlArr[i].url)
+	casper.open(urlArr[i].url)
+	casper.then(function(){
+		if(urlArr[i].iframe){
+			casper.withFrame(0,function(){
+				casper.then(function(){
+					this.fill(urlArr[i].formId,urlArr[i].msg,true)
+					this.click(urlArr[i].btnId)
+          i++
+				})
+			})
+		}else{
+			casper.then(function(){
+				this.fill(urlArr[i].formId,urlArr[i].msg,true)
+				this.click(urlArr[i].btnId)
+        i++
+			})	
+		}
+	})
+})
+casper.run()

@@ -1,0 +1,23 @@
+{
+  "name": "sms",
+  "version": "1.0.0",
+  "description": "use CasperJS",
+  "main": "sms.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yooki0328/SMS-BOOMer.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yooki0328/SMS-BOOMer/issues"
+  },
+  "homepage": "https://github.com/yooki0328/SMS-BOOMer#readme",
+  "devDependencies":{
+    "casperjs":"1.1.3",
+    "phantomjs":"2.1.7"
+  }
+}
